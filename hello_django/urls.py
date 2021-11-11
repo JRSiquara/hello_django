@@ -17,8 +17,28 @@ from django.contrib import admin
 from django.urls import path
 from core import views
 
-urlpatterns = [
+if views.opcao == 'H':
+    urlpatterns = [
     path('admin/', admin.site.urls),
-    #path('hello/<nome>/<int:idade>/', views.hello),
+    path('hello/<nome>/<int:idade>/', views.hello)
+    ]
+elif views.opcao == 'S':
+    urlpatterns = [
+    path('admin/', admin.site.urls),
     path('soma/<int:num1>/<int:num2>/', views.soma)
-]
+    ]
+elif views.opcao == 'M':
+    urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('multi/<int:num1>/<int:num2>/', views.multi)
+    ]
+elif views.opcao == 'D':
+    urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('divisao/<int:num1>/<int:num2>/', views.divisao)
+    ]
+elif views.opcao == 'U':
+    urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('subtracao/<int:num1>/<int:num2>/', views.subtracao)
+    ]
